@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolomna | Историческое наследие</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <div class="logo">
+                <span class="logo-icon">✧</span> KOLOMNA
+            </div>
+            <div class="nav-links">
+                <a href="#route">Маршрут</a>
+                <a href="#map">Карта</a>
+                <a href="#authors">Авторы</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section class="hero animate-on-scroll">
+            <div class="hero-text">
+                <h1 class="title-block">Сквозь Века: <br> <span>Влюбиться в Коломну</span></h1>
+                <div class="goal-block">
+                    <p>Погрузитесь в атмосферу русского средневековья и купеческого быта. Наш 3D-маршрут откроет вам
+                        тайны города, где история застыла в камне и дереве.</p>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="kremlin.png"
+                    alt="Коломна" class="hero-image">
+                <div class="image-overlay">Коломна, 1177 год</div>
+            </div>
+        </section>
+
+        <section id="route" class="route-section">
+            <h2 class="section-title animate-on-scroll">Нить Истории</h2>
+            <div class="route-grid" id="route-container">
+            </div>
+        </section>
+
+        <section id="map" class="map-section animate-on-scroll">
+            <h2 class="section-title">Маршрут на карте</h2>
+            <div id="map-canvas" style="width: 100%; height: 500px; border: 1px solid var(--gold-dim); border-radius: 4px;">
+            </div>
+        </section>
+
+        <section id="authors" class="authors-section animate-on-scroll">
+            <h2 class="section-title">Создатели проекта</h2>
+            <div class="authors-container">
+                <div class="authors-grid">
+                    <div class="author-box">
+                        <img src="puzanova.png" alt="Елизавета" class="author-avatar">
+                        <h3>Пузанова Е.Д.</h3>
+                        <p class="author-role">Кэп, Full-stack разработчик</p>
+                        <p class="author-uni">Московский Университет "Синергия"</p>
+                    </div>
+                    <div class="author-box">
+                        <img src="tyrin.png" alt="Никита" class="author-avatar">
+                        <h3>Тюрин Н.С.</h3>
+                        <p class="author-role">Технический писатель</p>
+                        <p class="author-uni">Московский Университет "Синергия"</p>
+                    </div>
+                    <div class="author-box">
+                        <img src="vasyta.png" alt="Илья" class="author-avatar">
+                        <h3>Васюта И.А.</h3>
+                        <p class="author-role">Технический архитектор</p>
+                        <p class="author-uni">Московский Университет "Синергия"</p>
+                    </div>
+                    <div class="author-box">
+                        <img src="bagirov.png" alt="Дарий" class="author-avatar">
+                        <h3>Багиров Д.Г.</h3>
+                        <p class="author-role">Backend-разработчик</p>
+                        <p class="author-uni">Московский Университет "Синергия"</p>
+                    </div>
+                </div>
+        
+                <div class="qr-block">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://t.me/Digital_PathsBot"
+                        alt="Telegram Bot QR" class="qr-image">
+                    <p>Пройти маршрут в Telegram боте</p>
+                </div>
+            </div>
+        </section>
+        <section id="custom-map" class="custom-map-section animate-on-scroll" style="margin-bottom: 80px;">
+            <h2 class="section-title">Карта пути</h2>
+            <div class="custom-map-container"
+                style="position: relative; width: 100%; border: 1px solid var(--gold); border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <img src="map.png" alt="Стилизованная карта маршрута" id="map-with-points"
+                    style="width: 100%; height: auto; display: block; filter: brightness(0.9) contrast(1.1);">
+            
+                <div
+                    style="position: absolute; bottom: 20px; right: 20px; background: rgba(18, 18, 20, 0.8); padding: 10px 15px; border: 1px solid var(--gold-dim); border-radius: 4px; backdrop-filter: blur(5px);">
+                    <p
+                        style="color: var(--gold); font-family: var(--font-heading); font-size: 1.2rem; margin: 0; letter-spacing: 1px;">
+                        Коломна. Пеший маршрут 0-4 км</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p><a class="footer-link" href="https://yandex.com/maps/-/CPG8jWys">Маршрут на Я.картах</a></p>
+            <p>© 2026 Kolomna Heritage | IT PEPE Project. Сохраняя историю.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="info-modal">
+        <div class="modal-content glass-effect">
+            <button class="close-btn" id="close-modal">✕</button>
+            <div class="modal-image-container">
+                <img id="modal-img" src="" alt="Место">
+            </div>
+            <h2 id="modal-title" class="title-block">Заголовок</h2>
+            <p id="modal-desc">Описание...</p>
+        </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=94213428-4d6e-46ba-b604-6a9aa7dad886&lang=ru_RU" type="text/javascript"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
