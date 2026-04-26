@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         { 
             title: 'Соборная площадь и "Блюдечко"', 
-            location: "ул. Лазарева",
+            location: "ул. Лазарева, 13",
             desc: "Духовный центр города с панорамным видом на слияние рек.", 
             img: "3.png",
             fullContent: `
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         { 
             title: "Пятницкие ворота", 
-            location: "ул. Лазарева, 28",
+            location: "ул. Зайцева, 14",
             desc: "Главный парадный вход в крепость, символ благополучия.", 
             img: "4.png",
             fullContent: `
