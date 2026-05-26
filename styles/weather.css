@@ -1,0 +1,77 @@
+/* Виджет погоды */
+.weather-widget {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(28, 28, 31, 0.85);
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 10px 20px;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s;
+}
+
+.weather-widget:hover {
+    border-color: var(--gold);
+}
+
+.weather-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    animation: float 4s ease-in-out infinite;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.weather-temp {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.weather-desc {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.weather-loading {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-text);
+    letter-spacing: 1px;
+}
+
+/* Пульсация во время загрузки */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.weather-loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 600px) {
+    .weather-desc {
+        display: none;
+    }
+
+    .weather-widget {
+        padding: 8px 12px;
+    }
+}

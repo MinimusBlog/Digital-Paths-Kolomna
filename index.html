@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="styles/scrollbar.css">
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/card.css">
+    <link rel="stylesheet" href="styles/weather.css">
     <link rel="stylesheet" href="styles/authors.css">
+    <link rel="stylesheet" href="styles/diary.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/modal.css">
 
@@ -31,10 +33,14 @@
             <div class="logo">
                 <span class="logo-icon">✧</span> KOLOMNA
             </div>
+            <div class="weather-widget" id="weather-widget">
+                <span class="weather-loading">— °C</span>
+            </div>
             <div class="nav-links">
                 <a href="#route">Маршрут</a>
                 <a href="#map">Карта</a>
                 <a href="#authors">Авторы</a>
+                <a href="#diary">Дневник туриста</a>
             </div>
         </div>
     </nav>
@@ -121,6 +127,30 @@
             </div>
         </section>
 
+        <section id="diary" class="diary-section animate-on-scroll">
+            <h2 class="section-title">Дневник путешественника</h2>
+            <div class="diary-container">
+        
+                <div class="diary-top">
+                    <p class="diary-subtitle">Отметьте места, которые вы посетили</p>
+                    <div class="progress-wrap">
+                        <div class="progress-track">
+                            <div class="progress-fill" id="diary-progress"></div>
+                        </div>
+                        <span class="progress-text" id="diary-label">0 из 11 мест</span>
+                    </div>
+                </div>
+        
+                <div class="diary-places" id="diary-places"></div>
+        
+                <div class="badges-wrap">
+                    <h3 class="badges-heading">Ваши значки</h3>
+                    <div class="badges-grid" id="diary-badges"></div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="diary-toast" id="diary-toast"></div>
     </main>
 
     <footer class="footer">

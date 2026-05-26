@@ -259,3 +259,178 @@ function init() {
     // Автоматически подбираем масштаб, чтобы все 11 точек были видны
     myMap.setBounds(myMap.geoObjects.getBounds(), { checkZoomRange: true });
 }
+
+// === Виджет погоды Коломна ===
+async function loadWeather() {
+    const widget = document.getElementById('weather-widget');
+    if (!widget) return;
+
+    // Таблица кодов WMO → эмодзи + описание
+    const weatherCodes = {
+        0:  { icon: '☀️',  desc: 'Ясно' },
+        1:  { icon: '🌤️', desc: 'Малооблачно' },
+        2:  { icon: '⛅',  desc: 'Переменная облачность' },
+        3:  { icon: '☁️',  desc: 'Пасмурно' },
+        45: { icon: '🌫️', desc: 'Туман' },
+        48: { icon: '🌫️', desc: 'Изморозь' },
+        51: { icon: '🌦️', desc: 'Лёгкая морось' },
+        53: { icon: '🌦️', desc: 'Морось' },
+        61: { icon: '🌧️', desc: 'Дождь' },
+        63: { icon: '🌧️', desc: 'Умеренный дождь' },
+        65: { icon: '🌧️', desc: 'Сильный дождь' },
+        71: { icon: '🌨️', desc: 'Снег' },
+        73: { icon: '❄️',  desc: 'Умеренный снег' },
+        75: { icon: '❄️',  desc: 'Сильный снег' },
+        80: { icon: '🌦️', desc: 'Ливень' },
+        95: { icon: '⛈️', desc: 'Гроза' },
+        99: { icon: '⛈️', desc: 'Гроза с градом' },
+    };
+
+    try {
+        const url = 'https://api.open-meteo.com/v1/forecast'
+            + '?latitude=55.0917&longitude=38.7761'
+            + '&current=temperature_2m,weathercode,windspeed_10m'
+            + '&wind_speed_unit=ms&timezone=Europe/Moscow';
+
+        const res  = await fetch(url);
+        const data = await res.json();
+
+        const temp = Math.round(data.current.temperature_2m);
+        const code = data.current.weathercode;
+        const wind = Math.round(data.current.windspeed_10m);
+
+        const { icon, desc } = weatherCodes[code] ?? { icon: '🌡️', desc: 'Коломна' };
+
+        widget.innerHTML = `
+            <span class="weather-icon">${icon}</span>
+            <div class="weather-info">
+                <span class="weather-temp">${temp > 0 ? '+' : ''}${temp}°C</span>
+                <span class="weather-desc">${desc} · ветер ${wind} м/с</span>
+            </div>
+        `;
+    } catch {
+        widget.innerHTML = `<span class="weather-loading">Коломна ✧</span>`;
+    }
+}
+
+loadWeather();
+
+// сессионый дневник путешественника
+(function initDiary() {
+
+    // Данные мест 
+    const PLACES = [
+        "Коломенский кремль",
+        "Литературное кафе «Лажечников»",
+        "Соборная площадь и «Блюдечко»",
+        "Пятницкие ворота",
+        "Музей «Калачная»",
+        "Музей «Душистые радости»",
+        "Кластер «Патефонка»",
+        "Музей «Коломенская пастила»",
+        "Музей-резиденция «АРТКоммуналка»",
+        "Колокольня Иоанна Богослова",
+        "Бистро «Рульки Вверх»"
+    ];
+
+    // Значки: условие получения + подсказка
+    const BADGES = [
+        { emoji: "🏰", name: "Хранитель кремля",  tip: "Посетите Кремль",            cond: v => v.has(0) },
+        { emoji: "🍵", name: "Гурман",             tip: "Загляните в кафе или бистро", cond: v => v.has(1) || v.has(10) },
+        { emoji: "🔔", name: "Звонарь",            tip: "Побывайте на соборной площади или у колокольни", cond: v => v.has(2) || v.has(9) },
+        { emoji: "🥐", name: "Калачник",           tip: "Посетите Калачную",           cond: v => v.has(4) },
+        { emoji: "🧼", name: "Мыловар",            tip: "Загляните в «Душистые радости»", cond: v => v.has(5) },
+        { emoji: "🎨", name: "Арт-бродяга",        tip: "Посетите Патефонку или АРТКоммуналку", cond: v => v.has(6) || v.has(8) },
+        { emoji: "🍬", name: "Сладкоежка",         tip: "Попробуйте пастилу",          cond: v => v.has(7) },
+        { emoji: "⭐", name: "Первопроходец",      tip: "Посетите первое место",       cond: v => v.size >= 1 },
+        { emoji: "🗺️", name: "Исследователь",      tip: "Посетите 5 мест",             cond: v => v.size >= 5 },
+        { emoji: "🏅", name: "Знаток Коломны",     tip: "Посетите 8 мест",             cond: v => v.size >= 8 },
+        { emoji: "👑", name: "Хозяин города",      tip: "Пройдите весь маршрут!",      cond: v => v.size >= 11 },
+    ];
+
+    const SESSION_KEY = "kolomna_diary_v1";
+
+    // Восстановление из сессии
+    let visited = new Set(
+        JSON.parse(sessionStorage.getItem(SESSION_KEY) || "[]")
+    );
+
+    // Элементы
+    const placesEl  = document.getElementById('diary-places');
+    const badgesEl  = document.getElementById('diary-badges');
+    const progFill  = document.getElementById('diary-progress');
+    const progLabel = document.getElementById('diary-label');
+    const toastEl   = document.getElementById('diary-toast');
+
+    if (!placesEl || !badgesEl) return; // секция не найдена
+
+    // мест
+    const placeCards = {};
+    PLACES.forEach((name, i) => {
+        const el = document.createElement('div');
+        el.className = 'diary-place' + (visited.has(i) ? ' visited' : '');
+        el.innerHTML = `
+            <span class="dp-num">${String(i + 1).padStart(2, '0')}</span>
+            <span class="dp-name">${name}</span>
+            <span class="dp-check">✓</span>`;
+        el.addEventListener('click', () => togglePlace(i));
+        placesEl.appendChild(el);
+        placeCards[i] = el;
+    });
+
+    // Рендер значков
+    const badgeEls = [];
+    BADGES.forEach(b => {
+        const el = document.createElement('div');
+        el.className = 'badge-item' + (b.cond(visited) ? ' unlocked' : '');
+        el.title = b.tip;
+        el.innerHTML = `
+            <div class="badge-icon">${b.emoji}</div>
+            <span class="badge-name">${b.name}</span>`;
+        badgesEl.appendChild(el);
+        badgeEls.push({ el, badge: b });
+    });
+
+    // Тост 
+    let toastTimer;
+    function showToast(msg) {
+        clearTimeout(toastTimer);
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3000);
+    }
+
+    // Обновление интерфейса
+    function updateUI() {
+        const n = visited.size;
+        progFill.style.width = (n / PLACES.length * 100) + '%';
+        progLabel.textContent = `${n} из ${PLACES.length} мест`;
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify([...visited]));
+
+        badgeEls.forEach(({ el, badge }) => {
+            const wasUnlocked = el.classList.contains('unlocked');
+            const isUnlocked  = badge.cond(visited);
+            if (isUnlocked && !wasUnlocked) {
+                el.classList.add('unlocked', 'just-unlocked');
+                setTimeout(() => el.classList.remove('just-unlocked'), 600);
+                showToast(`${badge.emoji} Значок получен: «${badge.name}»!`);
+            } else if (!isUnlocked) {
+                el.classList.remove('unlocked');
+            }
+        });
+    }
+
+    //Переключение мест
+    function togglePlace(i) {
+        if (visited.has(i)) {
+            visited.delete(i);
+            placeCards[i].classList.remove('visited');
+        } else {
+            visited.add(i);
+            placeCards[i].classList.add('visited');
+        }
+        updateUI();
+    }
+
+    updateUI(); // первичная отрисовка
+})();
