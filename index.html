@@ -5,15 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kolomna | Историческое наследие</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/scrollbar.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/card.css">
+    <link rel="stylesheet" href="styles/authors.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/modal.css">
+
 </head>
 
 <body>
+
 
     <nav class="navbar">
         <div class="container nav-inner">
@@ -39,7 +50,7 @@
                 </div>
             </div>
             <div class="hero-image-wrapper">
-                <img src="kremlin.png"
+                <img src="images/kremlin.png"
                     alt="Коломна" class="hero-image">
                 <div class="image-overlay">Коломна, 1177 год</div>
             </div>
@@ -62,33 +73,33 @@
             <div class="authors-container">
                 <div class="authors-grid">
                     <div class="author-box">
-                        <img src="puzanova.png" alt="Елизавета" class="author-avatar">
+                        <img loading="lazy" src="images/authors/puzanova.png" alt="Елизавета" class="author-avatar">
                         <h3>Пузанова Е.Д.</h3>
                         <p class="author-role">Кэп, Full-stack разработчик</p>
                         <p class="author-uni">Московский Университет "Синергия"</p>
                     </div>
                     <div class="author-box">
-                        <img src="tyrin.png" alt="Никита" class="author-avatar">
+                        <img loading="lazy" src="images/authors/tyrin.png" alt="Никита" class="author-avatar">
                         <h3>Тюрин Н.С.</h3>
                         <p class="author-role">Технический писатель</p>
                         <p class="author-uni">Московский Университет "Синергия"</p>
                     </div>
                     <div class="author-box">
-                        <img src="vasyta.png" alt="Илья" class="author-avatar">
+                        <img loading="lazy" src="images/authors/vasyta.png" alt="Илья" class="author-avatar">
                         <h3>Васюта И.А.</h3>
                         <p class="author-role">Технический архитектор</p>
                         <p class="author-uni">Московский Университет "Синергия"</p>
                     </div>
                     <div class="author-box">
-                        <img src="bagirov.png" alt="Дарий" class="author-avatar">
+                        <img loading="lazy" src="images/authors/bagirov.png" alt="Дарий" class="author-avatar">
                         <h3>Багиров Д.Г.</h3>
                         <p class="author-role">Backend-разработчик</p>
                         <p class="author-uni">Московский Университет "Синергия"</p>
                     </div>
                 </div>
-        
+
                 <div class="qr-block">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://t.me/Digital_PathsBot"
+                    <img loading="lazy" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://t.me/Digital_PathsBot"
                         alt="Telegram Bot QR" class="qr-image">
                     <p>Пройти маршрут в Telegram боте</p>
                 </div>
@@ -98,9 +109,9 @@
             <h2 class="section-title">Карта пути</h2>
             <div class="custom-map-container"
                 style="position: relative; width: 100%; border: 1px solid var(--gold); border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                <img src="map.png" alt="Стилизованная карта маршрута" id="map-with-points"
+                <img loading="lazy" src="images/map.png" alt="Стилизованная карта маршрута" id="map-with-points"
                     style="width: 100%; height: auto; display: block; filter: brightness(0.9) contrast(1.1);">
-            
+
                 <div
                     style="position: absolute; bottom: 20px; right: 20px; background: rgba(18, 18, 20, 0.8); padding: 10px 15px; border: 1px solid var(--gold-dim); border-radius: 4px; backdrop-filter: blur(5px);">
                     <p

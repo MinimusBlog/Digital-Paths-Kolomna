@@ -1,0 +1,140 @@
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    border: 1px solid var(--gold);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+        color: var(--gold);
+    }
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border-radius: 2px;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.modal-content p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Стили для ссылок внутри модального окна */
+.modal-desc a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+    transition: all 0.3s ease;
+}
+
+.modal-desc a:hover {
+    border-bottom-color: var(--gold);
+    background-color: var(--gold-dim);
+}
+
+/* Стили для меток (тегов) */
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-tags span {
+    font-size: 0.85rem;
+    color: var(--gold);
+    /* Фирменный золотой цвет для #тегов */
+    background: var(--gold-dim);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    font-family: var(--font-text);
+    letter-spacing: 0.5px;
+}
+
+/* Оформление заголовков и подсказок внутри поп-апа */
+.modal-desc h4 {
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin: 20px 0 10px 0;
+}
+
+.modal-tip {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid var(--gold);
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.modal-tip strong {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-link {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+    transition: all 0.3s ease;
+}

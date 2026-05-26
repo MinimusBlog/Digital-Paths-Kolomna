@@ -1,0 +1,16 @@
+/* Футер */
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.footer-link {
+    text-decoration: none;
+    color: var(--gold);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

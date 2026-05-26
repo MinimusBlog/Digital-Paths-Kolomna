@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.className = 'card animate-on-scroll';
             card.innerHTML = `
                 <div class="step-number">${index + 1}</div>
-                <img src="${place.img}" alt="${place.title}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=400';">
+                <img loading="lazy" src="images/locations/${place.img}" alt="${place.title}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=400';">
                 <div class="card-body">
                     <h3>${place.title}</h3>
                     <p>${place.desc}</p>
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (btn) {
                 const id = btn.getAttribute('data-id');
                 const data = routeData[id];
-                if (modalImg) modalImg.src = data.img;
+                if (modalImg) modalImg.src = "images/locations/"+data.img;
                 if (modalTitle) modalTitle.textContent = data.title;
                 if (modalDesc) modalDesc.innerHTML = data.fullContent || `<p>${data.desc}</p>`;
                 
