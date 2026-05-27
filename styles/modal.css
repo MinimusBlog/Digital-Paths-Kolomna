@@ -63,7 +63,7 @@
 }
 
 .modal-content h2 {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-size: 2.2rem;
 }
 
@@ -115,8 +115,10 @@
 }
 
 .modal-tip {
-    margin-top: 25px;
-    padding: 15px;
+    margin-top: 10px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background: rgba(255, 255, 255, 0.03);
     border-left: 2px solid var(--gold);
     font-size: 0.9rem;

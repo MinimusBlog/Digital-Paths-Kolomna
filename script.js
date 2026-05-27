@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "1.png",
             fullContent: `
                 <div class="modal-tags"><span>#архитектура</span> <span>#история</span> <span>#кремль</span></div>
-                <p>Возведённый в 1525–1531 годах, кремль был одной из самых мощных крепостей. Сегодня это живое сердце города.</p>
+                
+                <p>Коломна упомянута с 1177 года. В XVI веке построен Кремль (сохранились две стены и семь башен). На ул. Лажечникова — усадьбы XIX–XX веков.
+                <i>Интересный факт: Коломенский кремль строили итальянцы одновременно с московским; возможно, он стал его прообразом.</i></p>
+                
+
                 <div class="modal-tip"><strong>Адрес:</strong> ул. Лажечникова, 5</div>
                 <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://kolomna-kreml.ru/" target="_blank">kolomna-kreml.ru</a></div>`
         },
@@ -19,8 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "2.png",
             fullContent: `
                 <div class="modal-tags"><span>#еда</span> <span>#литература</span> <span>#культура</span></div>
-                <p>В меню — блюда, вдохновленные произведениями первого русского исторического романиста Ивана Лажечникова.</p>
-                <div class="modal-tip"><strong>Адрес:</strong> ул. Лажечникова, 13</div>`
+                
+                <p>Завтрак в «Литературном кафе Лажечников» (названо в честь писателя И. И. Лажечникова). Интерьер и меню стилизованы под эпоху. Рядом — магазин сувениров с местной пастилой, сидром, маслом и чаем.
+                <i>Интересный факт: Иван Лажечников — писатель, директор гимназии в Твери, автор романа «Ледяной дом».</i></p>
+
+                <div class="modal-tip"><strong>Адрес:</strong> ул. Лажечникова, 13</div>
+                <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://cafe-lazhechnikov.clients.site/" target="_blank">cafe-lazhechnikov.clients.site</a></div>`
         },
         { 
             title: 'Соборная площадь и "Блюдечко"', 
@@ -29,7 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "3.png",
             fullContent: `
                 <div class="modal-tags"><span>#православие</span> <span>#панорама</span> <span>#история</span></div>
-                <p>Центральное место Кремля, где находятся Успенский собор и старейшая шатровая колокольня.</p>
+                
+                <p>Соборная площадь Коломны включает Успенский кафедральный собор (основан Дмитрием Донским) и сквер «Блюдечко» на берегу Москвы-реки, который считается местом зарождения города.
+                <i>Интересный факт: Нынешний Успенский собор построен в конце XVII века взамен заложенного Дмитрием Донским в память о Куликовской битве.</i>
+                </p>
+                
                 <div class="modal-tip"><strong>Адрес:</strong> Соборная площадь (ул. Лазарева)</div>
                 <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://kolomna-kreml.ru/karta-kremlja/" target="_blank">Карта Кремля</a></div>`
         },
@@ -40,8 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "4.png",
             fullContent: `
                 <div class="modal-tags"><span>#архитектура</span> <span>#ворота</span></div>
-                <p>Главный вход в крепость. Башня имеет форму подковы — на счастье.</p>
-                <div class="modal-tip"><strong>Адрес:</strong> ул. Лазарева, 28 (выход к Москве-реке)</div>`
+                
+                <p>Через Соборную площадь выходим к Пятницкой башне, отделяющей Кремль от Посада. Рядом находится часовня Параскевы Пятницы и калачная.
+                <i>Интересный факт: Пятницкая башня — единственная сохранившаяся проездная башня Коломенского кремля.</i>
+                </p>
+                
+                <div class="modal-tip"><strong>Адрес:</strong> ул. Лазарева, 28 (выход к Москве-реке)</div>
+                <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://ru.wikipedia.org/wiki/%D0%9F%D1%8F%D1%82%D0%BD%D0%B8%D1%86%D0%BA%D0%B8%D0%B5_%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%B0_(%D0%9A%D0%BE%D0%BB%D0%BE%D0%BC%D0%BD%D0%B0)" target="_blank">ru.wikipedia.org</a></div>`
         },
         { 
             title: 'Музей "Калачная"', 
@@ -50,9 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "5.png",
             fullContent: `
                 <div class="modal-tags"><span>#ремесло</span> <span>#традиции</span> <span>#еда</span></div>
-                <p>Здесь возродили рецепт XIV века. Вы увидите полный цикл выпечки калачей в дровяной печи.</p>
+                
+                <p>В музее «Калачная» проходит театрализованная экскурсия с дегустацией выпечки по рецепту XIV века. Рядом работает «закутное окно», где можно купить калач с гусем.
+                <i>Интересный факт: Коломенские калачи пекут по рецепту XIV века. Выражение «дойти до ручки» произошло от обычая отдавать бедным ручку калача, за которую его держали.</i>
+                </p>
+                
                 <div class="modal-tip"><strong>Адрес:</strong> ул. Зайцева, 14</div>
-                <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://grad-kolomna.ru/" target="_blank">grad-kolomna.ru</a></div>`
+                <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://kolomnakalach.ru/" target="_blank">kolomnakalach.ru</a></div>`
         },
         { 
             title: 'Музей "Душистые радости"', 
@@ -61,8 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "6.png",
             fullContent: `
                 <div class="modal-tags"><span>#мыло</span> <span>#мануфактура</span></div>
-                <p>Воссозданная лавка Г.И. Суранова. Секреты красоты и гигиены XIX века.</p>
-                <div class="modal-tip"><strong>Адрес:</strong> ул. Зайцева, 18</div>`
+                
+                <p>Музей-мануфактура «Душистыя радости» возрождает традиции коломнского мыловарения. В экспозиции представлены раритеты и история российской парфюмерии рубежа XIX–XX вв. Доступны театрализованные экскурсии по бронированию.
+                <i>Интересный факт: В музее собрана уникальная коллекция дореволюционных флаконов и упаковки, включая экспонаты из Франции и Германии.</i>
+                </p>
+                
+                <div class="modal-tip"><strong>Адрес:</strong> ул. Зайцева, 18</div>
+                <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://d-radosti.ru/" target="_blank">d-radosti.ru</a></div>`
         },
         { 
             title: 'Креативный кластер "Патефонка"', 
@@ -71,7 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "7.png",
             fullContent: `
                 <div class="modal-tags"><span>#арт</span> <span>#завод</span> <span>#кластер</span></div>
-                <p>Территория бывшего патефонного завода. Сейчас здесь мастерские и арт-пространства.</p>
+                
+                <p>«Патефонка» — креативный кластер на территории бывшего завода «Текстильмаш».
+                <i>Интересный факт: Бывший завод патефонов стал творческим центром.</i>
+                </p>
+                
                 <div class="modal-tip"><strong>Адрес:</strong> ул. Уманская, 3Д</div>`
         },
         { 
@@ -81,7 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "8.png",
             fullContent: `
                 <div class="modal-tags"><span>#пастила</span> <span>#сладости</span></div>
-                <p>Посетители попадают на чайную церемонию, где пробуют пастилу по рецептам 18-19 веков.</p>
+                
+                <p>Музей «Коломенская пастила» в усадьбе Сурановых знакомит с культурой и технологией производства сладостей. В программе: экскурсии, дегустации и садовое кафе «1890» (работает с весны).
+                <i>Интересный факт: Коломенская пастила — исторический бренд. Технология, утерянная в советский период, была восстановлена в 2000-х годах.</i>
+                </p>
+                
                 <div class="modal-tip"><strong>Адрес:</strong> ул. Посадская, 13А</div>
                 <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://kolomnapastila.ru/" target="_blank">kolomnapastila.ru</a></div>`
         },
@@ -92,7 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "9.png",
             fullContent: `
                 <div class="modal-tags"><span>#СССР</span> <span>#60-е</span> <span>#галерея</span></div>
-                <p>Место, где советский коммунальный быт встречается с современным искусством.</p>
+                
+                <p>Музей-резиденция «Арткоммуналка. Ерофеев и Другие» (Коломна, ул. Октябрьской революции) воссоздает быт коммунальной квартиры 60-х годов. В выставочном зале представлены работы арт-резидентов. Доступны обзорные экскурсии.
+                <i>Интересный факт: Работа Венедикта Ерофеева грузчиком в Коломне легла в основу поэмы «Москва — Петушки».</i>
+                </p>
+                
                 <div class="modal-tip"><strong>Адрес:</strong> ул. Октябрьской Революции, 205 (вход со двора)</div>
                 <div class="modal-tip"><strong>Источник:</strong> <a class="modal-link" href="https://artkommunalka.com/" target="_blank">artkommunalka.com</a></div>`
         },
@@ -103,17 +141,25 @@ document.addEventListener("DOMContentLoaded", () => {
             img: "10.png",
             fullContent: `
                 <div class="modal-tags"><span>#архитектура</span> <span>#высота</span></div>
-                <p>Пятиярусная колокольня (67 метров) — одно из самых высоких строений города.</p>
+                
+                <p>Колокольня Церкви Иоанна Богослова (1826–1846) — самая высокая в Коломне (67 м), построена в стиле ампир. Имеет смотровую площадку и барельефную икону «Богоматерь с Младенцем Христом и предстоящим Иоанном Богословом».
+                <i>Интересный факт: Барельефную икону на колокольне создали итальянские мастера в 1525–1530 годах.</i>
+                </p>
+                
                 <div class="modal-tip"><strong>Адрес:</strong> пл. Двух Революций, 1</div>`
         },
         { 
-            title: 'Пивное бистро "Рульки Вверх"', 
+            title: 'бистро "Рульки Вверх"', 
             location: "ул. Красногвардейская, 3",
             desc: "Финальная точка маршрута: отдых и гастрономия.", 
             img: "11.png",
             fullContent: `
                 <div class="modal-tags"><span>#отдых</span> <span>#гастрономия</span></div>
-                <p>Идеальное место, чтобы завершить прогулку и попробовать авторскую кухню.</p>
+                
+                <p>Поужинайте в бистро «Рульки вверх»: рекомендуют фирменную рульку по-чешски и пиво. Завершите путешествие по Коломне в этом заведении.
+                <i>Интеренсый факт: Популярное место среди местных жителей. Порции очень большие.</i>
+                </p>
+                
                 <div class="modal-tip"><strong>Адрес:</strong> ул. Красногвардейская, 3</div>`
         }
     ];
