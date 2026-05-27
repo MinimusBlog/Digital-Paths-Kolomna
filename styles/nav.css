@@ -23,6 +23,12 @@
     color: var(--gold);
 }
 
+/* десктоп нав */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     color: var(--text-main);
     text-decoration: none;
@@ -34,5 +40,119 @@
 
     &:hover {
         color: var(--gold);
+    }
+}
+
+/* скрытие бургера на десктоп */
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+    transition: border-color 0.3s;
+
+    &:hover {
+        border-color: var(--gold);
+    }
+}
+
+.burger-btn .bar {
+    width: 18px;
+    height: 1.5px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+/* анимация крестика */
+.burger-btn.open .bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+.burger-btn.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.burger-btn.open .bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* мобильное меню */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--gold-dim);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.open {
+    max-height: 400px;
+}
+
+.mobile-menu-inner {
+    padding: 8px 0 20px;
+}
+
+.mobile-menu-inner a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 24px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+    border-left-color: var(--gold);
+    color: var(--gold);
+    background: var(--gold-dim);
+    }
+}
+
+.mobile-menu-inner .mn-num {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: rgba(197, 160, 89, 0.4);
+    min-width: 20px;
+}
+
+.mobile-menu-inner .mn-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.04);
+    margin: 8px 24px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .burger-btn {
+        display: flex;
+    }
+}
+
+@media (min-width: 769px) {
+    .burger-btn {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: none;
     }
 }

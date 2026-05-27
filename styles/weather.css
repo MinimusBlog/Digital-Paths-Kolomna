@@ -49,6 +49,13 @@
     letter-spacing: 1px;
 }
 
+.mn-weather {
+    display: none;
+    padding: 12px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    margin-bottom: 4px;
+}
+
 /* Пульсация во время загрузки */
 @keyframes pulse {
 
@@ -66,12 +73,28 @@
     animation: pulse 1.5s ease-in-out infinite;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .weather-widget {
+        padding: 6px 10px;
+        gap: 6px;
+    }
+
+    /* Скрываем описание и ветер. */
     .weather-desc {
         display: none;
     }
 
-    .weather-widget {
-        padding: 8px 12px;
+    .weather-temp {
+        font-size: 1rem;
+    }
+
+    .weather-icon {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .mn-weather {
+        display: block;
     }
 }

@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="modal-tip"><strong>Адрес:</strong> пл. Двух Революций, 1</div>`
         },
         { 
-            title: 'бистро "Рульки Вверх"', 
+            title: 'Бистро "Рульки Вверх"', 
             location: "ул. Красногвардейская, 3",
             desc: "Финальная точка маршрута: отдых и гастрономия.", 
             img: "11.png",
@@ -356,6 +356,15 @@ async function loadWeather() {
         `;
     } catch {
         widget.innerHTML = `<span class="weather-loading">Коломна ✧</span>`;
+        const mnWeather = document.getElementById('mn-weather');
+        if (mnWeather) {
+            mnWeather.innerHTML = `
+                <span style="font-size:0.85rem; color:var(--text-muted); 
+                    text-transform:uppercase; letter-spacing:1px;">
+                    Коломна сейчас: 
+                    <span style="color:var(--gold);">${icon} ${temp > 0 ? '+' : ''}${temp}°C · ${desc}</span>
+                </span>`;
+        }
     }
 }
 
@@ -479,4 +488,19 @@ loadWeather();
     }
 
     updateUI(); // первичная отрисовка
+})();
+
+// бургер меню
+(function initBurger() {
+    const btn  = document.getElementById('burger-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    const open  = () => { btn.classList.add('open');    menu.classList.add('open');    btn.setAttribute('aria-expanded', 'true');  btn.setAttribute('aria-label', 'Закрыть меню'); };
+    const close = () => { btn.classList.remove('open'); menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Открыть меню'); };
+
+    btn.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
+    menu.querySelectorAll('a').forEach(l => l.addEventListener('click', close));
+    document.addEventListener('click', e => { if (!btn.contains(e.target) && !menu.contains(e.target)) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
