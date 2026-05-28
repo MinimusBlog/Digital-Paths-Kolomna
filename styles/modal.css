@@ -73,7 +73,6 @@
     line-height: 1.8;
 }
 
-/* Стили для ссылок внутри модального окна */
 .modal-desc a {
     color: var(--gold);
     text-decoration: none;
@@ -86,7 +85,7 @@
     background-color: var(--gold-dim);
 }
 
-/* Стили для меток (тегов) */
+/* Стили для (тегов) */
 .modal-tags {
     display: flex;
     flex-wrap: wrap;
@@ -97,7 +96,6 @@
 .modal-tags span {
     font-size: 0.85rem;
     color: var(--gold);
-    /* Фирменный золотой цвет для #тегов */
     background: var(--gold-dim);
     padding: 4px 12px;
     border-radius: 20px;
@@ -139,4 +137,69 @@
     text-decoration: none;
     border-bottom: 1px solid var(--gold-dim);
     transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        min-height: 100dvh;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 24px 20px;
+        overflow-y: auto;
+        /* скролл внутри */
+        display: flex;
+        flex-direction: column;
+        transform: translateY(100px);
+    }
+
+    .modal.active .modal-content {
+        transform: translateY(0);
+    }
+
+    .modal-image-container img {
+        height: 220px;
+        border-radius: 4px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.7rem;
+        margin-bottom: 12px;
+    }
+
+    .modal-content p {
+        font-size: 0.9rem;
+    }
+
+    .modal-tags {
+        gap: 8px;
+    }
+
+    .modal-tags span {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+
+    .modal-tip {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    /* Кнопка закрытия крупнее */
+    .close-btn {
+        top: 12px;
+        right: 16px;
+        font-size: 20px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+    }
 }

@@ -197,7 +197,7 @@ h3 {
     }
 }
 
-/* --- Новые динамические анимации --- */
+/* --- динамические анимации --- */
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -233,7 +233,6 @@ h3 {
     align-items: center;
     justify-content: center;
     width: 280px;
-    /* Фиксированная ширина для правой колонки */
     text-align: center;
 }
 

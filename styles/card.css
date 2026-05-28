@@ -128,14 +128,59 @@
     content: "→";
 }
 
-/* Скрываем стрелку в конце ряда на мобилках и в самом конце списка */
-@media (max-width: 900px) {
-    .card:nth-child(2n)::after {
-        display: none;
+@media (max-width: 600px) {
+    .route-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 4px;
+    }
+
+    .card {
+        grid-template-rows: 180px auto;
+    }
+
+    .card-img {
+        height: 180px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-body h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .card-body p {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+    }
+
+    /* Стрелки между карточками убираем на мобиле */
+    .card::after {
+        display: none !important;
+    }
+
+    .step-number {
+        top: -12px;
+        left: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) and (min-width: 601px) {
+    .route-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+
+    .card {
+        grid-template-rows: 160px auto;
+    }
+
     .card::after {
         display: none !important;
     }
